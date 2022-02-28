@@ -1,4 +1,4 @@
-# Devart SilverStripe Project
+# SilverStripe Project
 > Base starting project for SS4.x projects
 
 ## Getting started
