@@ -1,0 +1,604 @@
+@import "variables";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+// @import url('https://fonts.googleapis.com/css?family=Lato:400');
+
+// Main Colors
+$accent:       $green; //Brand colour
+
+$error:        $orange; //coral
+
+$white:        #ffffff;
+$black:       #000000; //not sure
+
+$dark-gray:    $orange; //footer?
+
+$gray:         $black; //button text color
+
+$light-gray:   $black; //labels
+
+$lighter-gray: darken(white,5%); //background colour
+
+// Mixins
+$level: 1;
+
+@mixin materialShadow($level) {
+    @if $level == 1 {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    @else if $level == 2 {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    @else if $level == 3 {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    @else if $level == 4 {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    @else if $level == 5 {
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    }
+}
+
+@mixin transition($args) {
+    -webkit-transition: $args;
+    transition: $args;
+}
+
+@mixin transform($args) {
+    -webkit-transform: $args;
+    transform: $args;
+}
+
+/* Keyframes */
+// @mixin keyframes($name) {
+//     @-webkit-keyframes $name {
+//         @content;
+//     }
+//     @keyframes $name {
+//         @content;
+//     }
+// }
+// @include keyframes(buttonFadeInUp) {
+//     0% {
+//         bottom: 30px;
+//         opacity: 0;
+//     }
+// }
+
+/* Bootstrap extension */
+// Column for mbile phones (xxs)
+@media only screen and (max-width : 480px) {
+    .col-xxs-12{width:100%}
+    .col-xxs-11{width:91.66666667%}
+    .col-xxs-10{width:83.33333333%}
+    .col-xxs-9{width:75%}
+    .col-xxs-8{width:66.66666667%}
+    .col-xxs-7{width:58.33333333%}
+    .col-xxs-6{width:50%}
+    .col-xxs-5{width:41.66666667%}
+    .col-xxs-4{width:33.33333333%}
+    .col-xxs-3{width:25%}
+    .col-xxs-2{width:16.66666667%}
+    .col-xxs-1{width:8.33333333%}
+
+    .col-xxs-offset-12{margin-left:100%}
+    .col-xxs-offset-11{margin-left:91.66666667%}
+    .col-xxs-offset-10{margin-left:83.33333333%}
+    .col-xxs-offset-9{margin-left:75%}
+    .col-xxs-offset-8{margin-left:66.66666667%}
+    .col-xxs-offset-7{margin-left:58.33333333%}
+    .col-xxs-offset-6{margin-left:50%}
+    .col-xxs-offset-5{margin-left:41.66666667%}
+    .col-xxs-offset-4{margin-left:33.33333333%}
+    .col-xxs-offset-3{margin-left:25%}
+    .col-xxs-offset-2{margin-left:16.66666667%}
+    .col-xxs-offset-1{margin-left:8.33333333%}
+    .col-xxs-offset-0{margin-left:0;}
+}
+@media only screen and (max-width : 480px) {
+    .hidden-xxs {
+        display:none;
+    }
+}
+
+// Column positioned in center of page
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+//Spacers
+.top-spacer-5 {
+    margin-top: 5px;
+}
+.top-spacer-10 {
+    margin-top: 10px;
+}
+.top-spacer-15 {
+    margin-top: 15px;
+}
+.top-spacer-30 {
+    margin-top: 30px;
+}
+.top-spacer-45 {
+    margin-top: 45px;
+}
+.top-spacer-60 {
+    margin-top: 60px;
+}
+.bottom-spacer-15 {
+    margin-bottom: 15px;
+}
+.bottom-spacer-30 {
+    margin-bottom: 30px;
+}
+.bottom-spacer-45 {
+    margin-bottom: 45px;
+}
+.bottom-spacer-60 {
+    margin-bottom: 60px;
+}
+
+/* Page styles */
+body {
+    background: $lighter-gray;
+    color: $gray;
+    font-family: 'Roboto',sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* Sticky footer */
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.page-wrap {
+    flex: 1;
+}
+
+/* Page Title */
+.page-title {
+    padding: 5vh 0 2vh 0;
+    text-align: center;
+    letter-spacing: 2px;
+
+    h1 {
+        margin: 0 0 20px;
+        font-size: 32px;
+        font-weight: 300;
+    }
+
+    span {
+        font-size: 12px;
+
+        .fa {
+            color: $accent;
+        }
+
+        a {
+            color: $accent;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    }
+}
+
+/* Card */
+.card {
+    position: relative;
+    background: $white;
+    border-radius: 5px;
+    padding: 20px 0 20px 0;
+    box-sizing: border-box;
+    @include materialShadow(1);
+    transition: .3s ease;
+    min-height: 220px;
+
+    &.arranged-back {
+        background: darken($white, 2%);
+        height: 10px;
+        border-radius: 5px 5px 0 0;
+        margin: 0 10px;
+        padding: 0;
+        min-height: initial;
+    }
+
+    /* Title */
+    &-title {
+        position: relative;
+        z-index: 1;
+        border-left: 5px solid $accent;
+        margin: 0 0 15px;
+        padding: 10px 50px 10px 30px;
+        color: $accent;
+        font-size: 22px;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        @media only screen and (max-width : 480px) {
+            padding: 10px 20px 10px 14px;
+        }
+    }
+
+    &-footer {
+        text-align: center;
+        margin: 40px 0 0;
+
+        a {
+            font-size: 17px;
+        }
+    }
+}
+
+/* Form Inputs*/
+.input-container {
+    position: relative;
+    margin: 0 35px 30px;
+
+    @media only screen and (max-width : 480px) {
+        margin: 0px 20px 20px;
+    }
+
+    &.checkbox {
+        text-align:left;
+        margin-bottom: 30px;
+
+        label {
+            font-size: 17px;
+            line-height: initial;
+            padding-left: 30px;
+        }
+    }
+
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    outline: none;
+    z-index: 1;
+    position: relative;
+    background: none;
+    width: 100%;
+    height: 40px;
+    border: 0;
+    color: $gray;
+    font-size: 17px;
+    font-weight: 400;
+    margin: 10px 0 0 0;
+
+    &:focus {
+        ~ label {
+            color: $light-gray;
+            transform: translate(-12%, -50%) scale(0.75);
+        }
+
+        ~ .input-bottom-bar {
+            &:before, &:after {
+                width: 50%;
+            }
+        }
+    }
+
+    &:valid {
+        ~ label {
+            color: $light-gray;
+            transform: translate(-12%, -50%) scale(0.75);
+        }
+    }
+}
+
+
+
+
+
+.input-bottom-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: $light-gray;
+    width: 100%;
+    height: 1px;
+
+    &:before,
+        &:after {
+        content: '';
+        position: absolute;
+        background: $accent;
+        width: 0;
+        height: 2px;
+        transition: .2s ease;
+    }
+
+    &:before {
+        left: 50%;
+    }
+
+    &:after {
+        right: 50%;
+    }
+}
+
+label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $light-gray;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 60px;
+    @include transition(0.2s ease);
+}
+
+/* Links */
+a {
+    color: $gray;
+    font-weight: 300;
+
+    text-decoration: none;
+    transition: .3s ease;
+
+    &:hover {
+        color: $dark-gray;
+        text-decoration: underline;
+    }
+}
+#ForgotPassword {
+    margin: 25px 0 0 0;
+    text-align: center;
+}
+
+/* Buttons */
+.btn-back {
+    margin: 0 0 30px;
+    display: inline-block;
+
+    background: $accent;
+    border-radius: 3px;
+    @include materialShadow(1);
+    padding: 5px 15px;
+    color: $white;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 14px;
+    font-weight: 300;
+    @include transition(0.3s ease);
+
+    &:hover {
+        @include materialShadow(2);
+    }
+}
+
+.submit-container {
+    margin: 0 30px;
+    text-align: center;
+
+    .submit-button {
+        outline: 0;
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        background: 0;
+        width: auto;
+        border: 2px solid #e3e3e3;
+        padding: 10px 30px;
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .3s ease;
+
+        span {
+            position: relative;
+            z-index: 1;
+            color: $gray;
+            transition: .3s ease;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: block;
+            background: $accent;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            margin: -15px 0 0 -15px;
+            opacity: 0;
+            transition: .7s ease;
+        }
+
+        &:hover,
+            &:active,
+            &:focus {
+            border-color: $accent;
+
+            span {
+                color: $accent;
+            }
+        }
+
+        &:active,
+            &:focus {
+            span {
+                color: $white;
+            }
+
+            &:before {
+                opacity: 1;
+                @include transform(scale(10));
+            }
+        }
+    }
+
+    input[type="submit"] {
+        outline: 0;
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        background: 0;
+        width: auto;
+        border: 2px solid #e3e3e3;
+        padding: 20px 20px;
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .7s ease;
+
+        color: $gray;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: block;
+            background: $accent;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            margin: -15px 0 0 -15px;
+            opacity: 0;
+            transition: 0.7s ease;
+        }
+
+        &:hover, &:active, &:focus {
+            border-color: $accent;
+
+            color: $accent;
+        }
+
+        &:active, &:focus {
+            color: $white;
+
+            &:before {
+                opacity: 1;
+                @include transform(scale(10));
+            }
+        }
+    }
+}
+
+/* Circle sticker */
+.sticker {
+    position: absolute;
+    top: 10px;
+    right:-45px;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    background: $accent;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24);
+    color: $white;
+    font-size: 36px;
+    line-height: 90px;
+    text-align: center;
+
+    .fa {
+        color:$white;
+    }
+}
+
+/* Page footer */
+.footer {
+    color: $white;
+    background: $dark-gray;
+    padding: 10px 0;
+    margin-top: 30px;
+}
+
+/* Messages */
+.message {
+    padding: 0px 10px 0px 10px;
+    font-size: 14px;
+    font-weight: 300;
+    color: $accent;
+
+    &.bad {
+        color: $error;
+    }
+}
+.card > .message {
+    padding: 0 35px 10px;
+}
+
+form .message {
+    margin-bottom: 0;
+    padding: 0px 30px 15px;
+}
+
+/* Custom Checkboxes */
+//Kenan Yusuf: Completely CSS: Custom checkboxes, radio buttons and select boxes [2nd February 2016]
+.control {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    top: -999px;
+}
+.control-indicator {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: none;
+    border: 1px solid $light-gray;
+}
+.control:hover input ~ .control-indicator,
+.control input:focus ~ .control-indicator {
+    background: none;
+    border-color: $gray;
+}
+.control input:checked ~ .control-indicator {
+    background: none;
+    border-color: $gray;
+}
+
+.control input:disabled ~ .control-indicator {
+    background: $lighter-gray;
+    pointer-events: none;
+}
+.control input:checked ~ .control-indicator .fa {
+    display: block;
+}
+.control-checkbox .control-indicator .fa {
+    display: none;
+    color: $accent;
+    font-size: 17px;
+    position: relative;
+    top: 0px;
+    left: 1px;
+}
+.control-checkbox input:disabled ~ .control-indicator:after {
+    color: $lighter-gray;
+}
+
+
+.devartlogo {
+    margin-top:10px;
+    width:100px;
+    height:auto;
+    position:absolute;
+    right:5px;
+    transform: TranslateY(-200%);
+    opacity:0.4;
+}

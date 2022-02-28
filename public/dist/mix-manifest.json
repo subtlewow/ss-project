@@ -1,0 +1,9 @@
+{
+    "/js/application.js": "/js/application.js",
+    "/js/templates/HomePage.js": "/js/templates/HomePage.js",
+    "/css/application.css": "/css/application.css",
+    "/css/editor.css": "/css/editor.css",
+    "/css/security-login-styles.css": "/css/security-login-styles.css",
+    "/js/templates/Page.js": "/js/templates/Page.js",
+    "/js/vendor.js": "/js/vendor.js"
+}

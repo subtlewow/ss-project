@@ -1,0 +1,62 @@
+//
+// Variables
+
+// GRID from http://hugeinc.github.io/flexboxgrid-sass/
+// --------------------------------------------------
+// Set the number of columns you want to use on your layout.
+$grid-columns: 12 !default;
+// Set the gutter between columns.
+$gutter-width: 140px !default;
+// Set a margin for the container sides.
+$outer-margin: 0rem !default;
+
+//store breakpoints for use elsewhere in project asdn keep consistent
+$breakpoint-xsm : 30em; //480px
+$breakpoint-sm : 48em; //768px
+$breakpoint-md : 62em; //992px
+$breakpoint-lg : 75em; //1200px
+$breakpoint-xl : 100em; //1600px
+$breakpoint-xxl : 120em; //1920px
+
+
+// Create or remove breakpoints for your project
+// Syntax:
+// name SIZErem,
+$breakpoints:
+  xsm $breakpoint-xsm 28rem,
+  sm $breakpoint-sm 46rem,
+  md $breakpoint-md 61rem,
+  lg $breakpoint-lg 71rem,
+  xl $breakpoint-xl 78rem !default;
+$flexboxgrid-max-width: 2250px !default;
+
+
+// COLOURS
+// --------------------------------------------------
+
+$green : #109e6e;
+$light-green : #c1e4cc;
+$orange : #e87a3b;
+$light-orange : #fae0cf;
+$grey : #707070;
+
+$black : #084933;
+
+
+$primary : $black;
+$secondary : $green;
+
+
+$body-bg : white !default;
+$text-color : $black !default;
+
+$link-color : $primary !default;
+$link-hover-color : $secondary !default;
+$link-hover-decoration: none !default;
+
+
+$font-family-base : 'menco,sans-serif', sans-serif !default;
+$font-size-base : 16px !default;
+
+$line-height-base : 1.25 !default; 
+$line-height-computed : floor(($font-size-base * $line-height-base)) !default; 

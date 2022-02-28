@@ -1,0 +1,26 @@
+@import "variables";
+@import "components/editor-common";
+
+.mce-content-body {
+	body,a {
+		color:$primary;
+		font-size:16px;
+	}
+
+	h1,.h1 {
+		font-size:30px;
+		font-weight:700;
+	}
+	h2,.h2 {
+		font-size:26px;
+		font-weight:700;
+	}
+	h3,.h3 {
+		font-size:20px;
+		font-weight:700;
+	}
+	h4,.h4 {
+		font-size:18px;
+		font-weight:400;
+	}
+}

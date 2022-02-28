@@ -1,0 +1,19 @@
+---
+Name: ss-webpack
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: app
+
+SilverStripe\View\SSViewer:
+  themes:
+    - '$public'
+    - '$default'
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - SiteConfigExtension
+
+GoogleRecaptcha:
+  recaptcha_key: 6LdJie0UAAAAAHD85bMeMVEYhrvuHB0xL4Kmpc_R
+  recaptcha_secret: 6LdJie0UAAAAAH1DDlNhiCcB4DLbHdCI1_hMNCJl
+
